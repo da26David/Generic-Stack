@@ -37,7 +37,13 @@ public class StackClass <T>{
      * @throws StackEmptyException
      */
     public void pop() throws StackEmptyException{
-        stack[counter--] = null;
+       T[] temp = (T[]) new Object[stack.length - 1];
+       for(int i = 0; i < stack.length - 1; i++){
+           temp[i] = stack[i];
+       }
+       stack = temp;
+       counter = counter -1;
+
     }
 
     /**
@@ -46,7 +52,8 @@ public class StackClass <T>{
      * @throws StackEmptyException
      */
     public T peek() throws StackEmptyException{
-        return stack[counter];
+
+        return stack[counter - 1];
     }
 
     /**
@@ -57,9 +64,9 @@ public class StackClass <T>{
     public String list() throws StackEmptyException{
         int temp;
         String re = "";
-        for(temp = counter; temp > 0; temp--){
+        for(temp = counter -1; temp >= 0; temp--){
             re += stack[temp];
-            if(temp != 1){
+            if(temp != 0){
                 re += "; ";
             }
         }
