@@ -16,4 +16,15 @@ public class StackClass <T>{
     public T peek() throws StackEmptyException{
         return stack[counter];
     }
+    public String list() throws StackEmptyException{
+        int temp;
+        String re = "";
+        for(temp = counter; temp > 0; temp--){
+            re += stack[temp];
+            if(temp != 1){
+                re += "; ";
+            }
+        }
+        return re;
+    }
 }
