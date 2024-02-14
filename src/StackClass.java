@@ -73,7 +73,7 @@ public class StackClass <T>{
     public String list() throws StackEmptyException{
         int temp;
         String re = "";
-        if(counter = 0){
+        if(counter == 0){
             throw new StackEmptyException("Stack is empty");
         }
         for(temp = counter -1; temp >= 0; temp--){
