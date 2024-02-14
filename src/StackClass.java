@@ -29,11 +29,10 @@ public class StackClass <T>{
      * @throws StackFullException
      */
     public void push(T item) throws StackFullException{
-        counter ++;
-        if(counter > stack.length){
+        if(counter == stack.length){
             throw new StackFullException("Stack is full");
         }
-        stack[counter] = item;
+        stack[counter++] = item;
     }
 
     /**
